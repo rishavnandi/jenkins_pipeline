@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stock Price Graph</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Stock Price Graph</h1>
+      <form method="post">
+        <label for="ticker">Enter Ticker Symbol:</label>
+        <input type="text" id="ticker" name="ticker" required />
+        <button type="submit">Submit</button>
+      </form>
+      {% if ticker %}
+      <div class="graph-container">
+        <img
+          src="https://finviz.com/chart.ashx?t={{ ticker }}&ty=c&ta=1&p=d&s=l"
+          alt="Price Graph for {{ ticker }}"
+        />
+      </div>
+      <h2>{{ ticker }} Price History</h2>
+      <div class="table-container">{{ data|safe }}</div>
+      {% endif %}
+    </div>
+  </body>
+</html>
