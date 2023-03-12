@@ -11,9 +11,10 @@ resource "aws_vpc" "tf_vpc" {
 }
 
 resource "aws_subnet" "tf_subnet" {
-  vpc_id            = aws_vpc.tf_vpc.id
-  cidr_block        = "10.0.1.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.tf_vpc.id
+  cidr_block              = "10.0.1.0/24"
+  availability_zone       = "us-east-1a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "tf_subnet"
@@ -104,11 +105,10 @@ data "aws_ami" "tf_ami" {
 }
 
 resource "aws_instance" "tf_instance" {
-  ami                         = data.aws_ami.tf_ami.id
-  instance_type               = "t2.micro"
-  associate_public_ip_address = true
-  subnet_id                   = aws_subnet.tf_subnet.id
-  vpc_security_group_ids      = [aws_security_group.tf_sg.id]
+  ami                    = data.aws_ami.tf_ami.id
+  instance_type          = "t2.micro"
+  subnet_id              = aws_subnet.tf_subnet.id
+  vpc_security_group_ids = [aws_security_group.tf_sg.id]
 
   tags = {
     Name = "tf_instance"
