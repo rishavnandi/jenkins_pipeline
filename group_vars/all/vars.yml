@@ -1,8 +1,6 @@
 ---
 username: vagrant
 
-docker_dir: /home/{{ username }}/docker
-
 packages:
   - unzip
   - wget

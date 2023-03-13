@@ -55,11 +55,3 @@
     name: docker
     enabled: true
     state: started
-
-- name: Create docker directory
-  ansible.builtin.file:
-    path: "{{ docker_dir }}"
-    state: directory
-    owner: "{{ username }}"
-    group: "{{ username }}"
-    mode: 0755
