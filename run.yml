@@ -1,0 +1,12 @@
+---
+- name: Setup docker and deploy flask app
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Perform essential tasks
+      ansible.builtin.import_tasks: tasks/essential.yml
+    - name: Setup docker
+      ansible.builtin.import_tasks: tasks/docker.yml
+    - name: Deploy the app
+      ansible.builtin.import_tasks: tasks/flask.yml

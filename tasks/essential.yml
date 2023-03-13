@@ -1,0 +1,12 @@
+---
+- name: Update the server
+  ansible.builtin.apt:
+    update_cache: yes
+    cache_valid_time: 3600
+    upgrade: yes
+
+- name: Install packages
+  ansible.builtin.apt:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ packages }}"

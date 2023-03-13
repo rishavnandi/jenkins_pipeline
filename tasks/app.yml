@@ -1,0 +1,10 @@
+---
+- name: Deploy the docker container
+  community.docker.docker_container:
+    name: flask-stock
+    image: rishavnandi/flask-stock:latest-slim
+    pull: true
+    state: started
+    restart_policy: unless-stopped
+    ports:
+      - "5000:5000"
