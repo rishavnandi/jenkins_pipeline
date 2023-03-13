@@ -9,4 +9,4 @@
     - name: Setup docker
       ansible.builtin.import_tasks: tasks/docker.yml
     - name: Deploy the app
-      ansible.builtin.import_tasks: tasks/flask.yml
+      ansible.builtin.import_tasks: tasks/app.yml
