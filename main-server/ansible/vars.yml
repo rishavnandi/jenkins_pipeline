@@ -1,0 +1,4 @@
+---
+docker_image: your-docker-image
+docker_container_name: your-app
+app_port: 80 

@@ -1,0 +1,6 @@
+---
+jenkins_home: /var/lib/jenkins
+jenkins_user: jenkins
+jenkins_group: jenkins
+github_repo: "your-repo-url"
+github_branch: "main" 
